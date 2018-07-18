@@ -1,0 +1,29 @@
+{
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "@babel/preset-env"
+          ]
+        }
+      ]
+    ]
+  },
+  "dependencies": {},
+  "scripts": {
+    "build": "npm run build:js",
+    "build:js": "npm run build:js:typescript && npm run build:js:browserify && npm run build:js:clean",
+    "build:js:typescript": "tsc src/index.ts",
+    "build:js:browserify": "browserify src/index.js > build/bundle.js",
+    "build:js:clean": "cd src && find . -name '*.js' -delete"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.54",
+    "@babel/preset-env": "^7.0.0-beta.54",
+    "babelify": "^9.0.0",
+    "browserify": "^16.2.2",
+    "typescript": "^2.9.2"
+  }
+}
