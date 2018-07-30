@@ -16,7 +16,7 @@
     "build": "npm run build:js",
     "build:js": "npm run build:js:typescript && npm run build:js:browserify && npm run build:js:clean",
     "build:js:typescript": "tsc src/index.ts",
-    "build:js:browserify": "browserify src/index.js > build/bundle.js",
+    "build:js:browserify": "mkdir build && browserify src/index.js > build/bundle.js",
     "build:js:clean": "cd src && find . -name '*.js' -delete"
   },
   "devDependencies": {
